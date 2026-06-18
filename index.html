@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-content">
+        <p class="hero-subtitle"></p>
+        <h1>Happy Birthday, Pranali</h1>
+        <p>
+         Happy Birthday, dear ! 🎉
+Thank you for always being there through the good and bad times. 
+Wishing you happiness, success, good health, 
+and lots of amazing memories in the year ahead. Have a fantastic day! 🎂✨
+        </p>
+        <button id="startBtn" class="primary-btn">Start the Celebration 🎂</button>
+      </div>
+      <div class="hero-decor"></div>
+    </header>
+
+    <main>
+      <section id="candleSection" class="section hidden">
+        <div class="section-header">
+          <span class="section-label">Step 1</span>
+          <h2>Make a Wish & Blow the Candle 🎂</h2>
+          <p>Close your eyes, make a heartfelt wish, then click the flame to blow out the candle!</p>
+        </div>
+
+        <div class="candle-container">
+          <canvas id="candleCanvas" width="400" height="500"></canvas>
+        </div>
+
+        <div class="candle-instructions">
+          <p>💨 Click on the flame to blow out the candle!</p>
+        </div>
+
+        <div class="continue-wrapper hidden" id="candleContinueWrapper">
+          <button id="candleContinueBtn" class="secondary-btn">Next: Open Your Wishes 🎁</button>
+        </div>
+      </section>
+
+      <section id="wishesSection" class="section hidden">
+        <div class="section-header">
+          <span class="section-label">Step 2</span>
+          <h2>Open Your Wishes</h2>
+          <p>Scratch each card to discover a heartfelt wish made just for you.</p>
+        </div>
+
+        <div class="cards-grid" id="scratchCards">
+          <div class="scratch-card" data-message="May your year be filled with bold dreams, exciting adventures, and the courage to chase every wish.">
+            <div class="card-inner">
+              <div class="card-face card-front">Scratch Me</div>
+              <div class="card-face card-back">Hidden Message</div>
+              <canvas></canvas>
+            </div>
+          </div>
+          <div class="scratch-card" data-message="Thank you for always being my safe place, my source of laughter, and the friend who makes ordinary moments extraordinary.">
+            <div class="card-inner">
+              <div class="card-face card-front">Scratch Me</div>
+              <div class="card-face card-back">Hidden Message</div>
+              <canvas></canvas>
+            </div>
+          </div>
+          <div class="scratch-card" data-message="May every new sunrise bring happiness, success, good health, and the warmest joys your heart can hold.">
+            <div class="card-inner">
+              <div class="card-face card-front">Scratch Me</div>
+              <div class="card-face card-back">Hidden Message</div>
+              <canvas></canvas>
+            </div>
+          </div>
+          <div class="scratch-card" data-message="Here’s to more adventures, more stories, and more memories that we’ll cherish forever. I’m so grateful for you.">
+            <div class="card-inner">
+              <div class="card-face card-front">Scratch Me</div>
+              <div class="card-face card-back">Hidden Message</div>
+              <canvas></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="continue-wrapper hidden" id="continueWrapper">
+          <button id="continueBtn" class="secondary-btn">Continue to Your Letter 💌</button>
+        </div>
+      </section>
+
+      <section id="letterSection" class="section hidden">
+        <div class="section-header">
+          <span class="section-label">Step 3</span>
+          <h2>Your Personalized Letter</h2>
+          <p>Open your heart to a message built from memories, gratitude, and hopes for the future.</p>
+        </div>
+
+        <article class="letter-card">
+          <p>
+            🎂✨ **Happy Birthday, Dear ✨🎂
+
+On your special day, I just want to say how grateful I am to have a friend like you in my life. Thank you for always being there through every smile, every challenge, and every unforgettable moment.
+
+May this birthday bring you endless happiness, good health, success, and all the wonderful things you deserve. May your year ahead be filled with exciting adventures, beautiful memories, and dreams coming true.
+
+Keep smiling, keep shining, and never stop being the amazing person you are.
+
+🎉 Wishing you the happiest birthday ever! 🎉
+
+With lots of love and best wishes 💖 
+
+          </p>
+          
+          <p class="signature"></p>
+        </article>
+        <div class="memories-link">
+          <button id="memoriesBtn" class="secondary-btn">See Our Memories</button>
+        </div>
+      </section>
+
+      <section id="memoriesSection" class="section hidden">
+        <div class="section-header">
+          <span class="section-label">Step 4</span>
+          <h2>Our Memories</h2>
+          <p>A scrapbook-style gallery of the special moments we've shared.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="photo-card">
+            <img class="photo photo-1" src="photos/pp.jpeg" alt="Memory One" />
+            <p class="photo-caption">pp</p>
+          </div>
+          <div class="photo-card">
+            <img class="photo photo-2" src="photos/p.jpeg" alt="Journey Together" />
+            <p class="photo-caption">p</p>
+          </div>
+          <div class="photo-card">
+            <img class="photo photo-3" src="photos/ppp.jpeg" alt="Forever Friends" />
+            <p class="photo-caption">ppp</p>
+          </div>
+        </div>
+
+        <div class="final-surprise-link">
+          <button id="finalBtn" class="secondary-btn">Reveal the Final Surprise</button>
+        </div>
+      </section>
+
+      <section id="finalSection" class="section hidden">
+        <div class="section-header">
+          <span class="section-label">Final Surprise</span>
+          <h2>A Heartfelt Celebration</h2>
+          <p>This is your special message — a promise of joy, health, love, and endless friendship.</p>
+        </div>
+
+        <div class="final-card">
+          <p>A Heartfelt Celebration ❤️
+
+Today is all about celebrating an amazing person who brings joy, kindness, and happiness to everyone around them.  
+
+May your birthday be filled with laughter, love, and unforgettable moments. 
+
+May the year ahead bring you success, good health, new adventures, and countless reasons to smile.
+
+ You deserve all the happiness in the world.
+
+Happy Birthday! 🎂🎉✨
+</p>
+          
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

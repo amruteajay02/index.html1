@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Surprise - Share Link</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff9a76, #5f7cff);
+      font-family: Inter, system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 500px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 10px;
+      color: #0d1221;
+      font-size: 1.8rem;
+    }
+    p {
+      color: #666;
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+    #qrcode {
+      margin: 30px auto;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    .link-box {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      word-break: break-all;
+      font-family: monospace;
+      color: #0d1221;
+      font-size: 0.95rem;
+    }
+    .copy-btn {
+      background: #ff9a76;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: transform 0.2s;
+    }
+    .copy-btn:hover {
+      transform: scale(1.05);
+    }
+    .instructions {
+      text-align: left;
+      background: #f0f7ff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      color: #0d1221;
+    }
+    .instructions ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .instructions li {
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Share the Surprise</h1>
+    <p>Scan this QR code or use the link below to access the birthday surprise on mobile or any device!</p>
+    
+    <div id="qrcode"></div>
+    
+    <div class="link-box" id="linkBox">
+      Loading IP address...
+    </div>
+    
+    <button class="copy-btn" onclick="copyToClipboard()">Copy Link</button>
+    
+    <div class="instructions">
+      <strong>📱 How to Use:</strong>
+      <ol>
+        <li>Make sure both devices are on the <strong>same WiFi network</strong></li>
+        <li>On mobile, scan the QR code or copy & paste the link in browser</li>
+        <li>Enjoy the birthday surprise! 🎁</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    const IP = "10.71.87.149";
+    const PORT = "8000";
+    const LINK = `http://${IP}:${PORT}`;
+    
+    document.getElementById('linkBox').textContent = LINK;
+    
+    // Generate QR Code
+    new QRCode(document.getElementById('qrcode'), {
+      text: LINK,
+      width: 280,
+      height: 280,
+      colorDark: '#0d1221',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    
+    function copyToClipboard() {
+      navigator.clipboard.writeText(LINK).then(() => {
+        alert('Link copied to clipboard! 📋');
+      });
+    }
+  </script>
+</body>
+</html>

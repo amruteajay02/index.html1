@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎉 Birthday Surprise QR Code</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff9a76 0%, #ffc3a6 25%, #7cc4ff 75%, #ba68ff 100%);
+      background-attachment: fixed;
+      font-family: Inter, system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 32px;
+      padding: 50px 40px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.25);
+      max-width: 600px;
+      text-align: center;
+    }
+    .emoji {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    h1 {
+      margin: 0 0 8px;
+      color: #0d1221;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #ff9a76, #5f7cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    #qrcode {
+      margin: 40px auto;
+      padding: 30px;
+      background: linear-gradient(135deg, #f0f0f0, #fafafa);
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 3px solid rgba(255,154,118,0.2);
+    }
+    .instructions {
+      background: rgba(255, 154, 118, 0.08);
+      border-left: 4px solid #ff9a76;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 30px 0 0;
+      text-align: left;
+      color: #0d1221;
+    }
+    .instructions h3 {
+      margin: 0 0 12px;
+      color: #ff9a76;
+    }
+    .instructions p {
+      margin: 8px 0;
+      line-height: 1.7;
+    }
+    .link-info {
+      background: #f0f7ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      color: #0d1221;
+      font-family: monospace;
+      word-break: break-all;
+      font-size: 0.9rem;
+    }
+    .copy-btn {
+      background: linear-gradient(135deg, #ff9a76, #ffc3a6);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 700;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(255, 154, 118, 0.3);
+    }
+    .copy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 154, 118, 0.4);
+    }
+    .separator {
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+      margin: 30px 0;
+    }
+    .alternative {
+      text-align: left;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 12px;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .alternative strong {
+      color: #0d1221;
+      display: block;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="emoji">🎁</span>
+    <h1>Birthday Surprise Awaits!</h1>
+    <p class="subtitle">Scan this QR code to begin the magical journey</p>
+    
+    <div id="qrcode"></div>
+    
+    <div class="link-info" id="linkBox">
+      Direct Link: Loading...
+    </div>
+    
+    <button class="copy-btn" onclick="copyToClipboard()">📋 Copy Link</button>
+    
+    <div class="separator"></div>
+    
+    <div class="instructions">
+      <h3>✨ How to Share:</h3>
+      <p>1. Print this page or display it on your screen</p>
+      <p>2. Ask your friend to scan the QR code with their phone camera</p>
+      <p>3. They'll automatically open the surprise experience</p>
+      <p><strong>📱 Important:</strong> Both devices must be on the same WiFi network</p>
+    </div>
+    
+    <div class="alternative">
+      <strong>Alternative: Direct Share</strong>
+      Copy the link above and send it via WhatsApp, Telegram, or any messaging app. They can open it on any device while connected to your WiFi.
+    </div>
+  </div>
+
+  <script>
+    const IP = "10.71.87.149";
+    const PORT = "8000";
+    const LINK = `http://${IP}:${PORT}/index.html`;
+    
+    document.getElementById('linkBox').textContent = `Direct Link: ${LINK}`;
+    
+    // Generate QR Code with the full link to index.html
+    new QRCode(document.getElementById('qrcode'), {
+      text: LINK,
+      width: 320,
+      height: 320,
+      colorDark: '#0d1221',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    
+    function copyToClipboard() {
+      navigator.clipboard.writeText(LINK).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        btn.style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = 'linear-gradient(135deg, #ff9a76, #ffc3a6)';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
