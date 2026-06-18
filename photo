@@ -1,18 +1,14 @@
-<h2>Our Memories</h2>
-          <p>A scrapbook-style gallery of the special moments we've shared.</p>
-        </div>
-
-        to-card">
-            <img class="photo photo-3" src="photos/ppp.jpeg" alt="Forever Friends" />
-            <p class="photo-caption">ppp</p>
-          </div>
-        </div>
-</div><div class="gallery-grid">
-          <div class="photo-card">
-            <img class="photo photo-1" src="photos/pp.jpeg" alt="Memory One" />
-            <p class="photo-caption">pp</p>
-          </div>
-          <div class="photo-card">
-            <img class="photo photo-2" src="photos/p.jpeg" alt="Journey Together" />
-            <p class="photo-caption">p</p>
-          </div>
+<div class="gallery-grid">
+  <div class="photo-card">
+    <img class="photo photo-1" src="pp.jpeg" alt="Memory One" />
+    <p class="photo-caption">pp</p>
+  </div>
+  <div class="photo-card">
+    <img class="photo photo-2" src="p.jpeg" alt="Journey Together" />
+    <p class="photo-caption">p</p>
+  </div>
+  <div class="photo-card">
+    <img class="photo photo-3" src="ppp.jpeg" alt="Forever Friends" />
+    <p class="photo-caption">ppp</p>
+  </div>
+</div>
